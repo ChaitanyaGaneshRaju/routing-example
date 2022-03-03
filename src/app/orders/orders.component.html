@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <div
+        class="card border-primary mb-3"
+        *ngFor="let order of activeOrders; let i = index"
+      >
+        <div class="card-body">
+          <p *ngIf="order.Dosa">Dosa - {{ order["Dosa"] }}</p>
+          <p *ngIf="order.Idly">Idly - {{ order["Idly"] }}</p>
+          <p *ngIf="order.Vada">Vada - {{ order["Vada"] }}</p>
+          <p *ngIf="order.Upma">Upma - {{ order["Upma"] }}</p>
+          <p *ngIf="order.Chapathi">Chapathi - {{ order["Chapathi"] }}</p>
+          <p *ngIf="order.Puri">Puri - {{ order["Puri"] }}</p>
+          <div class="float-right">
+            <form [formGroup]="form" (ngSubmit)="sendOrderToChef(i)">
+              <select
+                class="form-select form-select-lg mr-5"
+                aria-label=".form-select-lg example"
+                style="height: 40px"
+                formControlName="selectedChef"
+              >
+                <option value="" selected disabled>Select Chefs</option>
+                <option [value]="chef.id" *ngFor="let chef of chefs">
+                  {{ chef.name }}
+                </option>
+              </select>
+              <button class="btn btn-primary mr-2">Confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <h2>Total Orders = {{ totalOrders.length }}</h2>
+      <h5>Total Income of today = {{totalPriceOfOrders}}</h5>
+      <hr />
+      <div *ngFor="let order of totalOrders">
+        <div>
+          <p *ngIf="order.Dosa">Dosa - {{ order["Dosa"] }}</p>
+          <p *ngIf="order.Idly">Idly - {{ order["Idly"] }}</p>
+          <p *ngIf="order.Vada">Vada - {{ order["Vada"] }}</p>
+          <p *ngIf="order.Upma">Upma - {{ order["Upma"] }}</p>
+          <p *ngIf="order.Chapathi">Chapathi - {{ order["Chapathi"] }}</p>
+          <p *ngIf="order.Puri">Puri - {{ order["Puri"] }}</p>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

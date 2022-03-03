@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <table class="table table-primary">
+        <thead>
+          <tr>
+            <th>S.no</th>
+            <th>Item Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tbody>
+            <tr *ngFor="let item of items;let i=index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <form action="" [formGroup]="itemsForm" (ngSubmit)="onSubmit()" >
+        <h3>Select the required items</h3>
+        <h5>Total price of selected items = {{priceOfEnteredItems}}</h5>
+        <div class="input-group mb-3" *ngFor="let item of items">
+          <p class="input-group-text col-md-3">{{item.name}}</p>
+          <input type="number" class="form-control shadow-none" aria-describedby="basic-addon3" [formControlName]="item.name">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit" [disabled]="!itemsForm.valid">
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <h2>{{ currentChef.name }} (id:- {{ currentChef.id }})</h2>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <h4>Total Orders = {{ currentChef.orders.length }}</h4>
+        <hr />
+        <div *ngFor="let order of currentChef.orders">
+          <div>
+            <p *ngIf="order.Dosa">Dosa - {{ order["Dosa"] }}</p>
+            <p *ngIf="order.Idly">Idly - {{ order["Idly"] }}</p>
+            <p *ngIf="order.Vada">Vada - {{ order["Vada"] }}</p>
+            <p *ngIf="order.Upma">Upma - {{ order["Upma"] }}</p>
+            <p *ngIf="order.Chapathi">Chapathi - {{ order["Chapathi"] }}</p>
+            <p *ngIf="order.Puri">Puri - {{ order["Puri"] }}</p>
+          </div>
+          <hr />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="row" *ngFor="let chef of chefs">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="card border-primary mb-3">
+        <div class="card-body">
+          {{chef.name}}
+          <span class="badge bg-primary text-light">{{chef.orders.length}}</span>
+          <a class="btn btn-primary float-right" [routerLink]="[ '/chefs',chef.id]" >Check Orders</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
